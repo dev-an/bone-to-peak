@@ -1,3 +1,8 @@
+<div align="center">
+  <img src="./assets/bone-to-peak.png" alt="bone-to-peak thumbnail" width="512"/>
+</div>
+
+
 # 🦴 Bone-To-Peak
 
 > **"Everyone has a bone to pick, but we build a Bone to Peak."**
