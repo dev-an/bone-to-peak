@@ -53,8 +53,8 @@ Unlike traditional survivors where projectiles fly randomly, your minions react 
 
 ### Prerequisites
 
-* Unity 2022.3 LTS or higher (Recommended)
-* Git LFS (For high-quality necro-assets)
+* Unity 6.3 LTS or higher (Recommended)
+* Git LFS (Optional)
 
 ### Installation
 
