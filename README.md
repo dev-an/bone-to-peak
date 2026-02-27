@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./assets/bone-to-peak.png" alt="bone-to-peak thumbnail" width="512"/>
+  <img src="./Assets/bone-to-peak.png" alt="bone-to-peak thumbnail" width="512"/>
 </div>
 
 
