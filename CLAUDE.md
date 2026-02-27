@@ -80,9 +80,18 @@ bone-to-peak/
 
 ## 현재 진행 상황
 
-Phase 1 — Foundation 준비 완료. Unity 프로젝트 생성 완료.
+Phase 1 — Foundation 구현 완료.
 
-다음 구현 대상:
-1. Object Pooling 시스템
-2. 기본 Player 이동
-3. 카메라 Follow
+완료 항목:
+- Object Pooling 시스템 (IPoolable, ObjectPool, ObjectPoolManager)
+- 플레이어 8방향 이동 (PlayerController + InputSystem)
+- 카메라 Follow (Cinemachine 3.1.3)
+- 씬 구성 및 테스트 통과
+
+## TODO (Phase 2 — Combat 기초)
+
+1. 적 스폰 시스템 (EnemySpawner, 웨이브 기반)
+2. 기본 적 AI (플레이어 방향 이동)
+3. 체력/피격 시스템 (IDamageable)
+4. 시체 드롭 시스템 (Corpse)
+5. 기본 미니언 소환 (Raise)
