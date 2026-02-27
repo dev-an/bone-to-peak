@@ -1,0 +1,52 @@
+{
+  // Unity file associations
+  "files.associations": {
+    "*.shader": "shaderlab",
+    "*.cginc": "hlsl",
+    "*.hlsl": "hlsl",
+    "*.compute": "hlsl",
+    "*.asmdef": "json",
+    "*.asmref": "json"
+  },
+
+  // Hide Unity-generated files from explorer
+  "files.exclude": {
+    "**/.DS_Store": true,
+    "**/.git": true,
+    "**/Thumbs.db": true,
+    "Library/": true,
+    "Temp/": true,
+    "Obj/": true,
+    "Logs/": true,
+    "UserSettings/": true,
+    "MemoryCaptures/": true,
+    "**/*.csproj": true,
+    "**/*.sln": true,
+    "**/*.unityproj": true
+  },
+
+  // Search exclusions
+  "search.exclude": {
+    "Library/": true,
+    "Temp/": true,
+    "Obj/": true,
+    "Logs/": true,
+    "Packages/": true,
+    "**/*.meta": true
+  },
+
+  // C# formatting
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": null,
+  "[csharp]": {
+    "editor.defaultFormatter": "ms-dotnettools.csharp",
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true
+  },
+
+  // File settings
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true
+}
