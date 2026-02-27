@@ -6,6 +6,8 @@ namespace BoneToPeak.Player
     [RequireComponent(typeof(Rigidbody2D))]
     public class PlayerController : MonoBehaviour
     {
+        public static PlayerController Instance { get; private set; }
+
         [SerializeField] private InputActionAsset _inputActions;
         [SerializeField] private float _moveSpeed = 5.0f;
 
@@ -15,6 +17,7 @@ namespace BoneToPeak.Player
 
         private void Awake()
         {
+            Instance = this;
             _rb = GetComponent<Rigidbody2D>();
 
             if (_inputActions == null)
