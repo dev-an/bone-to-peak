@@ -18,8 +18,8 @@
 
 - [ ] Unity Hub 설치
 - [ ] Unity 6.3 LTS 설치
-- [ ] Git LFS 설치 및 `.gitattributes` 설정
-- [ ] `.gitignore` (Unity 템플릿) 추가
+- [x] Git LFS 설치 및 `.gitattributes` 설정
+- [x] `.gitignore` (Unity 템플릿) 추가
 
 ---
 
