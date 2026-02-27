@@ -63,6 +63,7 @@ bone-to-peak/
 | 시체 경제 시스템     | `docs/game-design/corpse-economy.md`     |
 | 포메이션 시스템      | `docs/game-design/formation-system.md`   |
 | 적 & 웨이브 시스템   | `docs/game-design/enemy-wave-system.md`  |
+| 레벨 & 맵 디자인     | `docs/game-design/level-map-design.md`   |
 | 성장 시스템          | `docs/game-design/progression-system.md` |
 
 ## 커밋 규칙

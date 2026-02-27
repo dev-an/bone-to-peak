@@ -61,6 +61,7 @@
 | [시체 경제 시스템](./corpse-economy.md)                | Corpse 자원 획득/소비, Raise · Refine · Explode 상세 |
 | [전술 포메이션 시스템](./formation-system.md)          | 3가지 포메이션 배치, 보너스/패널티, Flocking AI      |
 | [적 & 웨이브 시스템](./enemy-wave-system.md)           | 적 유형, 웨이브 구조, 스폰 패턴, 보스 메카닉         |
+| [레벨 & 맵 디자인](./level-map-design.md)              | 맵 구조, 바이옴, 장애물, 특수 지형, 카메라 시스템    |
 | [성장 & 레벨업 시스템](./progression-system.md)        | 인게임 성장, 스킬 선택, 메타 진행, 언락              |
 
 ---
