@@ -82,17 +82,36 @@ bone-to-peak/
 ## 현재 진행 상황
 
 Phase 1 — Foundation 구현 완료.
+Phase 2 — Combat 기초 구현 완료.
 
-완료 항목:
+### Phase 1 완료 항목
 - Object Pooling 시스템 (IPoolable, ObjectPool, ObjectPoolManager)
 - 플레이어 8방향 이동 (PlayerController + InputSystem)
 - 카메라 Follow (Cinemachine 3.1.3)
 - 씬 구성 및 테스트 통과
 
-## TODO (Phase 2 — Combat 기초)
+### Phase 2 완료 항목
+- 게임 이벤트 시스템 (GameEvents — 정적 이벤트 버스)
+- 체력/피격 시스템 (IDamageable, Health, DamageCalculator)
+- 적/미니언 SO 데이터 (EnemyStatsSO, WaveConfigSO, MinionStatsSO)
+- 플레이어 전투 (PlayerCombat — 시체 인벤토리, 소환 슬롯, 무적 시간)
+- 기본 적 AI (EnemyBase — 플레이어 추적)
+- 적 스폰 시스템 (EnemySpawner — 웨이브 기반, 카메라 가장자리 스폰)
+- 시체 드롭/수집 (Corpse, CorpseSpawner, CorpseCollector)
+- 미니언 AI (MinionBase — Follow/Attack 상태)
+- 소환 시스템 (SummonSystem — 우클릭 소환)
 
-1. 적 스폰 시스템 (EnemySpawner, 웨이브 기반)
-2. 기본 적 AI (플레이어 방향 이동)
-3. 체력/피격 시스템 (IDamageable)
-4. 시체 드롭 시스템 (Corpse)
-5. 기본 미니언 소환 (Raise)
+### Unity Editor 수동 설정 필요 항목
+- 물리 레이어: Player(6), Enemy(7), Minion(8), Corpse(9) + 충돌 매트릭스
+- SO 에셋 생성: 적 4종(Swarm/Halberdier/Archer/Shielder), 웨이브 4개, 미니언 3종
+- 프리팹 생성: 적 4종, 미니언 3종, Corpse (임시 색상 스프라이트)
+- 씬 구성: CorpseSpawner, EnemySpawner 매니저 + CorpseDetector 자식 오브젝트
+
+## TODO (Phase 3)
+
+1. 포메이션 시스템 (Guard 상태, 3가지 포메이션)
+2. 플레이어 기본 공격 (지팡이/소울 애로우)
+3. Refine 합성 시스템
+4. Explode (시체 폭발)
+5. 보스/엘리트 적
+6. UI/HUD
