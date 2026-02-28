@@ -52,19 +52,22 @@ bone-to-peak/
 
 ## 참고 문서
 
-| 문서                 | 경로                                     |
-| -------------------- | ---------------------------------------- |
-| 프로젝트 셋업 계획   | `docs/20260225-project-setup-plan.md`    |
-| Unity 설치 가이드    | `docs/20260227-unity-setup-guide.md`     |
-| 코딩 컨벤션          | `docs/coding-conventions.md`             |
-| 게임 기획 총괄       | `docs/game-design/overview.md`           |
-| 플레이어(네크로맨서) | `docs/game-design/player-necromancer.md` |
-| 미니언 시스템        | `docs/game-design/minion-system.md`      |
-| 시체 경제 시스템     | `docs/game-design/corpse-economy.md`     |
-| 포메이션 시스템      | `docs/game-design/formation-system.md`   |
-| 적 & 웨이브 시스템   | `docs/game-design/enemy-wave-system.md`  |
-| 레벨 & 맵 디자인     | `docs/game-design/level-map-design.md`   |
-| 성장 시스템          | `docs/game-design/progression-system.md` |
+| 문서                 | 경로                                      |
+| -------------------- | ----------------------------------------- |
+| 프로젝트 셋업 계획   | `docs/20260225-project-setup-plan.md`     |
+| Unity 설치 가이드    | `docs/20260227-unity-setup-guide.md`      |
+| 코딩 컨벤션          | `docs/coding-conventions.md`              |
+| 게임 기획 총괄       | `docs/game-design/overview.md`            |
+| 플레이어(네크로맨서) | `docs/game-design/player-necromancer.md`  |
+| 미니언 시스템        | `docs/game-design/minion-system.md`       |
+| 시체 경제 시스템     | `docs/game-design/corpse-economy.md`      |
+| 포메이션 시스템      | `docs/game-design/formation-system.md`    |
+| 적 & 웨이브 시스템   | `docs/game-design/enemy-wave-system.md`   |
+| 레벨 & 맵 디자인     | `docs/game-design/level-map-design.md`    |
+| 성장 시스템          | `docs/game-design/progression-system.md`  |
+| 오디오 디자인        | `docs/game-design/audio-design.md`        |
+| 튜토리얼 & 온보딩    | `docs/game-design/tutorial-onboarding.md` |
+| QoL & 접근성         | `docs/game-design/quality-of-life.md`     |
 
 ## 커밋 규칙
 
