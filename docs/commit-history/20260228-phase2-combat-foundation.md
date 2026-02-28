@@ -94,10 +94,57 @@ Phase 2 전투 기초 시스템 구현 완료. 핵심 전투 루프를 구축:
 | ------------------- | -------------------- |
 | PlayerController.cs | static Instance 추가 |
 
-## Unity Editor에서 수동 설정 필요
+## Unity Editor 수동 설정
 
-- [ ] 물리 레이어 설정: Player(6), Enemy(7), Minion(8), Corpse(9)
-- [ ] 충돌 매트릭스: Enemy↔Player, Enemy↔Minion, Corpse↔Player만 활성화
-- [ ] SO 에셋 생성 (CreateAssetMenu): 적 4종, 웨이브 4개, 미니언 3종
-- [ ] 프리팹 생성: 적 4종, 미니언 3종, Corpse (임시 컬러 스프라이트)
-- [ ] 씬 구성: CorpseSpawner/EnemySpawner 매니저, CorpseDetector 자식 오브젝트
+### 완료
+
+- [x] 물리 레이어 설정: Player(6), Enemy(7), Minion(8), Corpse(9)
+- [x] 충돌 매트릭스: Enemy↔Player, Enemy↔Minion, Corpse↔Player만 활성화
+- [x] SO 에셋 생성: EnemyStatsSO 4종, MinionStatsSO 3종, WaveConfigSO 4종
+- [x] 프리팹 생성: 적 4종, 미니언 3종, Corpse (임시 컬러 스프라이트)
+- [x] 모든 프리팹 Layer 할당
+
+### 미완료
+
+- [ ] Player 오브젝트 컴포넌트 구성 (PlayerCombat + SummonSystem)
+- [ ] CorpseDetector 자식 오브젝트 생성
+- [ ] 씬 매니저 배치 (ObjectPoolManager, CorpseSpawner, EnemySpawner)
+- [ ] SummonSystem에 InputActions + MinionStats + MinionPrefab 할당
+
+---
+
+## chore
+
+### 물리 레이어 및 충돌 매트릭스 설정
+
+- `ProjectSettings/TagManager.asset` — Player(6), Enemy(7), Minion(8), Corpse(9) 레이어 추가
+- `ProjectSettings/Physics2DSettings.asset` — Player↔Enemy, Minion↔Enemy, Player↔Corpse만 활성화
+
+### Markdown 포매터 설정
+
+- `.prettierrc`, `.prettierignore` 추가
+
+## style
+
+### Prettier 포맷 적용
+
+- 게임 기획 문서 포맷 정리
+- 프로젝트 문서 포맷 정리
+
+## 에셋 생성
+
+### ScriptableObject 에셋 (11종)
+
+| 종류 | 에셋 |
+| --- | --- |
+| EnemyStatsSO | Swarm, Halberdier, Archer, Shielder |
+| MinionStatsSO | Warrior, Archer, Zombie |
+| WaveConfigSO | Wave1_Tutorial, Wave2_Halberdier, Wave3_Archer, Wave4_Mixed |
+
+### 프리팹 (8종)
+
+| 종류 | 프리팹 |
+| --- | --- |
+| 적 | Enemy_Swarm, Enemy_Halberdier, Enemy_Archer, Enemy_Shielder |
+| 미니언 | Minion_Warrior, Minion_Archer, Minion_Zombie |
+| 시체 | Corpse |
