@@ -106,14 +106,14 @@ Phase 2 — Combat 기초 구현 완료.
 - 미니언 AI (MinionBase — Follow/Attack 상태, 적 접촉 데미지)
 - 소환 시스템 (SummonSystem — 우클릭 소환)
 
-### Unity Editor 수동 설정 (미완료)
+### Unity Editor 수동 설정 (일부 완료)
 
 > 상세 가이드: `docs/unity-editor-setup-phase2.md`
 
-- 물리 레이어: Player(6), Enemy(7), Minion(8), Corpse(9) + 충돌 매트릭스
-- SO 에셋 생성: 적 4종, 웨이브 4개, 미니언 3종 (AttackInterval = 공격 간격 초)
-- 프리팹 생성: 적 4종, 미니언 3종, Corpse (임시 색상 스프라이트)
-- 씬 구성: CorpseSpawner, EnemySpawner 매니저 + CorpseDetector 자식 오브젝트
+- ~~물리 레이어: Player(6), Enemy(7), Minion(8), Corpse(9) + 충돌 매트릭스~~ ✅
+- ~~SO 에셋 생성: 적 4종, 웨이브 4개, 미니언 3종~~ ✅
+- ~~프리팹 생성: 적 4종, 미니언 3종, Corpse~~ ✅
+- 씬 구성: Player 컴포넌트, CorpseDetector, CorpseSpawner, EnemySpawner 배치
 
 ## TODO (Phase 3)
 

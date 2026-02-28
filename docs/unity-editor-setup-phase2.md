@@ -258,15 +258,15 @@ Player 오브젝트 하위에 빈 GameObject 생성 후:
 
 완료 후 아래 항목을 확인합니다.
 
-- [ ] 레이어 4종 설정 (Player/Enemy/Minion/Corpse)
-- [ ] 충돌 매트릭스 설정 (Player-Enemy, Minion-Enemy, Player-Corpse만 활성화)
-- [ ] EnemyStatsSO 에셋 4종 생성 및 값 입력
-- [ ] WaveConfigSO 에셋 4종 생성 및 적 프리팹 연결
-- [ ] MinionStatsSO 에셋 3종 생성 및 값 입력 (Phase 2에서는 Warrior 1종 필수)
-- [ ] 적 프리팹 4종 생성 (SpriteRenderer + Rigidbody2D + CircleCollider2D + EnemyBase)
-- [ ] 미니언 프리팹 생성 (Phase 2에서는 Warrior 1종 필수)
-- [ ] Corpse 프리팹 생성 (SpriteRenderer + CircleCollider2D + Corpse)
-- [ ] 모든 프리팹에 올바른 Layer 할당
+- [x] 레이어 4종 설정 (Player/Enemy/Minion/Corpse)
+- [x] 충돌 매트릭스 설정 (Player-Enemy, Minion-Enemy, Player-Corpse만 활성화)
+- [x] EnemyStatsSO 에셋 4종 생성 및 값 입력
+- [x] MinionStatsSO 에셋 3종 생성 및 값 입력
+- [x] 적 프리팹 4종 생성 (SpriteRenderer + Rigidbody2D + CircleCollider2D + EnemyBase)
+- [x] 미니언 프리팹 3종 생성 (SpriteRenderer + Rigidbody2D + CircleCollider2D + MinionBase)
+- [x] Corpse 프리팹 생성 (SpriteRenderer + CircleCollider2D + Corpse)
+- [x] 모든 프리팹에 올바른 Layer 할당
+- [x] WaveConfigSO 에셋 4종 생성 및 적 프리팹 연결
 - [ ] Player 오브젝트 컴포넌트 구성 (PlayerController + PlayerCombat + SummonSystem)
 - [ ] CorpseDetector 자식 오브젝트 생성 (CircleCollider2D + CorpseCollector)
 - [ ] ObjectPoolManager 씬에 배치
