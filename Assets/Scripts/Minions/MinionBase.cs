@@ -27,6 +27,7 @@ namespace BoneToPeak.Minions
         private Vector2 _followOffset;
 
         private static int _followIndex;
+        private static int _enemyLayerMask = -1;
         private static readonly Collider2D[] OverlapResults = new Collider2D[MaxOverlapResults];
 
         public float CurrentHealth => _health?.CurrentHealth ?? 0f;
@@ -49,12 +50,11 @@ namespace BoneToPeak.Minions
                 _attackCooldownTimer -= Time.deltaTime;
             }
 
-            _searchTimer += Time.deltaTime;
-
             switch (_state)
             {
                 case MinionState.Follow:
                     UpdateFollow();
+                    _searchTimer += Time.deltaTime;
                     if (_searchTimer >= EnemySearchInterval)
                     {
                         _searchTimer = 0f;
@@ -159,7 +159,7 @@ namespace BoneToPeak.Minions
                 {
                     float damage = DamageCalculator.Calculate(_stats.Attack, 0f);
                     _targetEnemy.TakeDamage(damage);
-                    _attackCooldownTimer = 1f / _stats.AttackSpeed;
+                    _attackCooldownTimer = _stats.AttackSpeed;
                 }
             }
             else
@@ -177,8 +177,13 @@ namespace BoneToPeak.Minions
 
         private void SearchForEnemy()
         {
+            if (_enemyLayerMask == -1)
+            {
+                _enemyLayerMask = LayerMask.GetMask("Enemy");
+            }
+
             int count = Physics2D.OverlapCircleNonAlloc(
-                _rb.position, DetectionRange, OverlapResults, LayerMask.GetMask("Enemy")
+                _rb.position, DetectionRange, OverlapResults, _enemyLayerMask
             );
 
             float closestDist = float.MaxValue;

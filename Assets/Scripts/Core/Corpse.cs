@@ -26,27 +26,28 @@ namespace BoneToPeak.Core
 
         private void Update()
         {
-            if (_isSuctioning)
-            {
-                if (_suctionTarget == null)
-                {
-                    _isSuctioning = false;
-                    return;
-                }
-
-                transform.position = Vector3.MoveTowards(
-                    transform.position,
-                    _suctionTarget.position,
-                    _suctionSpeed * Time.deltaTime
-                );
-                return;
-            }
-
             _timer += Time.deltaTime;
 
             if (_timer >= _lifeTime)
             {
                 ReturnToPool();
+                return;
+            }
+
+            if (_isSuctioning)
+            {
+                if (_suctionTarget == null)
+                {
+                    _isSuctioning = false;
+                }
+                else
+                {
+                    transform.position = Vector3.MoveTowards(
+                        transform.position,
+                        _suctionTarget.position,
+                        _suctionSpeed * Time.deltaTime
+                    );
+                }
                 return;
             }
 
