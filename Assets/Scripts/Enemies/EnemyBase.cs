@@ -1,5 +1,6 @@
 using System.Collections;
 using BoneToPeak.Core;
+using BoneToPeak.Minions;
 using BoneToPeak.Player;
 using UnityEngine;
 
@@ -17,8 +18,10 @@ namespace BoneToPeak.Enemies
         private float _currentAttack;
         private float _currentMoveSpeed;
         private bool _isDying;
+        private float _contactDamageTimer;
 
         private const float DeathDelay = 0.1f;
+        private const float ContactDamageInterval = 0.5f;
 
         public float CurrentHealth => _health?.CurrentHealth ?? 0f;
         public float MaxHealth => _health?.MaxHealth ?? 0f;
@@ -32,12 +35,36 @@ namespace BoneToPeak.Enemies
             _health.OnDeath += HandleDeath;
         }
 
+        private void Update()
+        {
+            if (_contactDamageTimer > 0f)
+            {
+                _contactDamageTimer -= Time.deltaTime;
+            }
+        }
+
         private void FixedUpdate()
         {
             if (_isDying || IsDead || _playerTransform == null) return;
 
             Vector2 direction = ((Vector2)_playerTransform.position - _rb.position).normalized;
             _rb.linearVelocity = direction * _currentMoveSpeed;
+        }
+
+        private void OnTriggerStay2D(Collider2D other)
+        {
+            if (IsDead || _isDying || _contactDamageTimer > 0f) return;
+
+            if (!other.TryGetComponent<MinionBase>(out var minion)) return;
+            if (minion.IsDead) return;
+
+            float damageToMinion = DamageCalculator.Calculate(_currentAttack, 0f);
+            minion.TakeDamage(damageToMinion);
+
+            float damageToEnemy = DamageCalculator.Calculate(minion.Attack, 0f);
+            TakeDamage(damageToEnemy);
+
+            _contactDamageTimer = ContactDamageInterval;
         }
 
         private void OnDestroy()
@@ -72,6 +99,7 @@ namespace BoneToPeak.Enemies
             _rb.linearVelocity = Vector2.zero;
             _playerTransform = null;
             _isDying = false;
+            _contactDamageTimer = 0f;
         }
 
         public void TakeDamage(float damage)

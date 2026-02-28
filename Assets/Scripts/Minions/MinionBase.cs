@@ -33,6 +33,7 @@ namespace BoneToPeak.Minions
         public float CurrentHealth => _health?.CurrentHealth ?? 0f;
         public float MaxHealth => _health?.MaxHealth ?? 0f;
         public bool IsDead => _health?.IsDead ?? true;
+        public float Attack => _stats.Attack;
 
         private void Awake()
         {
@@ -159,7 +160,7 @@ namespace BoneToPeak.Minions
                 {
                     float damage = DamageCalculator.Calculate(_stats.Attack, 0f);
                     _targetEnemy.TakeDamage(damage);
-                    _attackCooldownTimer = _stats.AttackSpeed;
+                    _attackCooldownTimer = _stats.AttackInterval;
                 }
             }
             else
