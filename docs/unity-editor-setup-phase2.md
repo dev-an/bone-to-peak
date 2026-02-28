@@ -42,7 +42,7 @@
 
 ---
 
-## 3. ScriptableObject 에셋 생성
+## 3. ScriptableObject 에셋 생성 (프리팹 불필요)
 
 **생성 방법**: `Assets/ScriptableObjects/` 폴더에서 우클릭 > `Create > BoneToPeak > ...`
 
@@ -57,63 +57,7 @@
 | `EnemyStats_Archer`     | 궁수      | 25        | 8      | 3.0       | 6.0         | 1               |
 | `EnemyStats_Shielder`   | 방패병    | 80        | 6      | 2.5       | 0.8         | 2               |
 
-### 3-2. 웨이브 설정 (WaveConfig) — 4개
-
-`Create > BoneToPeak > Wave Config`
-
-**Wave1_Tutorial**
-
-| 필드          | 값                         |
-| ------------- | -------------------------- |
-| WaveNumber    | 1                          |
-| Duration      | 60                         |
-| SpawnInterval | 2.0                        |
-| HpMultiplier  | 1.0                        |
-| AtkMultiplier | 1.0                        |
-| SpdMultiplier | 1.0                        |
-| RestDuration  | 10                         |
-| EnemyEntries  | Swarm 프리팹 (Weight: 1.0) |
-
-**Wave2_Halberdier**
-
-| 필드          | 값                                            |
-| ------------- | --------------------------------------------- |
-| WaveNumber    | 2                                             |
-| Duration      | 60                                            |
-| SpawnInterval | 1.8                                           |
-| HpMultiplier  | 1.0                                           |
-| AtkMultiplier | 1.0                                           |
-| SpdMultiplier | 1.0                                           |
-| RestDuration  | 10                                            |
-| EnemyEntries  | Swarm (Weight: 0.7), Halberdier (Weight: 0.3) |
-
-**Wave3_Archer**
-
-| 필드          | 값                                                                    |
-| ------------- | --------------------------------------------------------------------- |
-| WaveNumber    | 3                                                                     |
-| Duration      | 60                                                                    |
-| SpawnInterval | 1.5                                                                   |
-| HpMultiplier  | 1.0                                                                   |
-| AtkMultiplier | 1.0                                                                   |
-| SpdMultiplier | 1.0                                                                   |
-| RestDuration  | 10                                                                    |
-| EnemyEntries  | Swarm (Weight: 0.5), Halberdier (Weight: 0.25), Archer (Weight: 0.25) |
-
-**Wave4_Mixed**
-
-| 필드          | 값                                                          |
-| ------------- | ----------------------------------------------------------- |
-| WaveNumber    | 4                                                           |
-| Duration      | 60                                                          |
-| SpawnInterval | 1.3                                                         |
-| HpMultiplier  | 1.0                                                         |
-| AtkMultiplier | 1.0                                                         |
-| SpdMultiplier | 1.0                                                         |
-| RestDuration  | 10                                                          |
-| EnemyEntries  | Swarm (0.4), Halberdier (0.2), Archer (0.2), Shielder (0.2) |
-
-### 3-3. 미니언 스탯 (MinionStats) — 3종
+### 3-2. 미니언 스탯 (MinionStats) — 3종
 
 `Create > BoneToPeak > Minion Stats`
 
@@ -172,6 +116,8 @@
 
 ### 4-3. 시체 프리팹 — 1종
 
+> **참고**: Corpse 프리팹은 Rigidbody2D 불필요
+
 | 컴포넌트          | 설정                                           |
 | ----------------- | ---------------------------------------------- |
 | SpriteRenderer    | 임시 스프라이트, 녹색 (00FF66), 크기 0.5x0.5   |
@@ -185,11 +131,71 @@
 
 ---
 
-## 5. 플레이어 오브젝트 설정
+## 5. 웨이브 설정 (WaveConfig) — 4종
+
+> **의존성**: 적 프리팹(4-1)이 먼저 생성되어야 EnemyEntries에 할당 가능
+
+`Assets/ScriptableObjects/` 우클릭 > `Create > BoneToPeak > Wave Config`
+
+**Wave1_Tutorial**
+
+| 필드          | 값                         |
+| ------------- | -------------------------- |
+| WaveNumber    | 1                          |
+| Duration      | 60                         |
+| SpawnInterval | 2.0                        |
+| HpMultiplier  | 1.0                        |
+| AtkMultiplier | 1.0                        |
+| SpdMultiplier | 1.0                        |
+| RestDuration  | 10                         |
+| EnemyEntries  | Swarm 프리팹 (Weight: 1.0) |
+
+**Wave2_Halberdier**
+
+| 필드          | 값                                            |
+| ------------- | --------------------------------------------- |
+| WaveNumber    | 2                                             |
+| Duration      | 60                                            |
+| SpawnInterval | 1.8                                           |
+| HpMultiplier  | 1.0                                           |
+| AtkMultiplier | 1.0                                           |
+| SpdMultiplier | 1.0                                           |
+| RestDuration  | 10                                            |
+| EnemyEntries  | Swarm (Weight: 0.7), Halberdier (Weight: 0.3) |
+
+**Wave3_Archer**
+
+| 필드          | 값                                                                    |
+| ------------- | --------------------------------------------------------------------- |
+| WaveNumber    | 3                                                                     |
+| Duration      | 60                                                                    |
+| SpawnInterval | 1.5                                                                   |
+| HpMultiplier  | 1.0                                                                   |
+| AtkMultiplier | 1.0                                                                   |
+| SpdMultiplier | 1.0                                                                   |
+| RestDuration  | 10                                                                    |
+| EnemyEntries  | Swarm (Weight: 0.5), Halberdier (Weight: 0.25), Archer (Weight: 0.25) |
+
+**Wave4_Mixed**
+
+| 필드          | 값                                                          |
+| ------------- | ----------------------------------------------------------- |
+| WaveNumber    | 4                                                           |
+| Duration      | 60                                                          |
+| SpawnInterval | 1.3                                                         |
+| HpMultiplier  | 1.0                                                         |
+| AtkMultiplier | 1.0                                                         |
+| SpdMultiplier | 1.0                                                         |
+| RestDuration  | 10                                                          |
+| EnemyEntries  | Swarm (0.4), Halberdier (0.2), Archer (0.2), Shielder (0.2) |
+
+---
+
+## 6. 플레이어 오브젝트 설정
 
 **GameScene**에서 Player 오브젝트 구성:
 
-### 5-1. Player (루트 오브젝트)
+### 6-1. Player (루트 오브젝트)
 
 | 컴포넌트         | 설정                                                                                                                  |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------- |
@@ -202,7 +208,7 @@
 
 **Layer**: **Player (6)**
 
-### 5-2. CorpseDetector (Player의 자식 오브젝트)
+### 6-2. CorpseDetector (Player의 자식 오브젝트)
 
 Player 오브젝트 하위에 빈 GameObject 생성 후:
 
@@ -215,11 +221,11 @@ Player 오브젝트 하위에 빈 GameObject 생성 후:
 
 ---
 
-## 6. 씬 매니저 오브젝트 설정
+## 7. 씬 매니저 오브젝트 설정
 
 **GameScene**에 빈 GameObject로 매니저들을 배치합니다.
 
-### 6-1. ObjectPoolManager
+### 7-1. ObjectPoolManager
 
 | 컴포넌트          | 설정                                        |
 | ----------------- | ------------------------------------------- |
@@ -227,13 +233,13 @@ Player 오브젝트 하위에 빈 GameObject 생성 후:
 
 > 이미 존재하면 중복 생성하지 마세요. `DontDestroyOnLoad`로 씬 전환에도 유지됩니다.
 
-### 6-2. CorpseSpawner
+### 7-2. CorpseSpawner
 
 | 컴포넌트      | 설정                                              |
 | ------------- | ------------------------------------------------- |
 | CorpseSpawner | CorpsePrefab: `Corpse` 프리팹, ScatterRadius: 0.5 |
 
-### 6-3. EnemySpawner
+### 7-3. EnemySpawner
 
 | 컴포넌트     | 설정                                                                                |
 | ------------ | ----------------------------------------------------------------------------------- |
@@ -241,14 +247,14 @@ Player 오브젝트 하위에 빈 GameObject 생성 후:
 
 ---
 
-## 7. 카메라 설정
+## 8. 카메라 설정
 
 - Main Camera: **Orthographic**, Size는 게임 스케일에 맞게 조정 (권장: 5~7)
 - Cinemachine Virtual Camera가 Player를 Follow하도록 설정 (Phase 1에서 완료)
 
 ---
 
-## 8. 설정 체크리스트
+## 9. 설정 체크리스트
 
 완료 후 아래 항목을 확인합니다.
 
@@ -270,7 +276,7 @@ Player 오브젝트 하위에 빈 GameObject 생성 후:
 
 ---
 
-## 9. 동작 확인 방법
+## 10. 동작 확인 방법
 
 Play 모드 진입 후 예상 동작:
 
