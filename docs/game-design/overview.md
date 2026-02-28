@@ -63,6 +63,7 @@
 | [적 & 웨이브 시스템](./enemy-wave-system.md)           | 적 유형, 웨이브 구조, 스폰 패턴, 보스 메카닉         |
 | [레벨 & 맵 디자인](./level-map-design.md)              | 맵 구조, 바이옴, 장애물, 특수 지형, 카메라 시스템    |
 | [성장 & 레벨업 시스템](./progression-system.md)        | 인게임 성장, 스킬 선택, 메타 진행, 언락              |
+| [Phase 3 구현 가이드](./phase3-implementation-guide.md) | Phase 3 구현 순서, 코드 구조, 테스트 기준            |
 
 ---
 
