@@ -117,13 +117,13 @@
 
 `Create > BoneToPeak > Minion Stats`
 
-| 에셋 이름              | MinionName      | Tier | MaxHealth | Attack | AttackSpeed | MoveSpeed | AttackRange | CorpseCost | IsRanged |
-| ---------------------- | --------------- | ---- | --------- | ------ | ----------- | --------- | ----------- | ---------- | -------- |
-| `MinionStats_Warrior`  | 스켈레톤 워리어 | T1   | 30        | 12     | 1.0         | 4.5       | 1.5         | 1          | false    |
-| `MinionStats_Archer`   | 스켈레톤 아처   | T1   | 20        | 8      | 1.2         | 4.0       | 7.0         | 2          | true     |
-| `MinionStats_Zombie`   | 좀비            | T1   | 60        | 6      | 1.5         | 3.0       | 1.2         | 1          | false    |
+| 에셋 이름              | MinionName      | Tier | MaxHealth | Attack | AttackInterval | MoveSpeed | AttackRange | CorpseCost | IsRanged |
+| ---------------------- | --------------- | ---- | --------- | ------ | -------------- | --------- | ----------- | ---------- | -------- |
+| `MinionStats_Warrior`  | 스켈레톤 워리어 | T1   | 30        | 12     | 1.0            | 4.5       | 1.5         | 1          | false    |
+| `MinionStats_Archer`   | 스켈레톤 아처   | T1   | 20        | 8      | 1.2            | 4.0       | 7.0         | 2          | true     |
+| `MinionStats_Zombie`   | 좀비            | T1   | 60        | 6      | 1.5            | 3.0       | 1.2         | 1          | false    |
 
-> **주의**: `AttackSpeed` 값은 **공격 간격(초)**입니다. 높을수록 느린 공격입니다.
+> **주의**: `AttackInterval` 값은 **공격 간격(초)**입니다. 높을수록 느린 공격입니다.
 
 ---
 

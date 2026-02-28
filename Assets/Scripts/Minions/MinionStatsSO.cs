@@ -9,7 +9,7 @@ namespace BoneToPeak.Minions
         [SerializeField] private MinionTier _tier = MinionTier.T1;
         [SerializeField] private float _maxHealth = 30f;
         [SerializeField] private float _attack = 12f;
-        [SerializeField] private float _attackSpeed = 1f;
+        [SerializeField] private float _attackInterval = 1f;
         [SerializeField] private float _moveSpeed = 4.5f;
         [SerializeField] private float _attackRange = 1f;
         [SerializeField] private int _corpseCost = 1;
@@ -19,7 +19,7 @@ namespace BoneToPeak.Minions
         public MinionTier Tier => _tier;
         public float MaxHealth => _maxHealth;
         public float Attack => _attack;
-        public float AttackSpeed => _attackSpeed;
+        public float AttackInterval => _attackInterval;
         public float MoveSpeed => _moveSpeed;
         public float AttackRange => _attackRange;
         public int CorpseCost => _corpseCost;
