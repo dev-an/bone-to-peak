@@ -58,6 +58,7 @@ Assets/Scripts/
 ### 핵심 구현 사항
 
 **FormationManager (싱글톤)**:
+
 - `CurrentFormation`: 현재 활성 포메이션 타입
 - `SwitchFormation()`: Q 키 입력 처리, 쿨타임 3초 관리
 - `GetSlotPosition(int index, int totalMinions)`: 미니언 인덱스 → 월드 좌표
@@ -65,12 +66,14 @@ Assets/Scripts/
 - 이벤트: `OnFormationChanged(FormationType)` → GameEvents에 추가
 
 **MinionBase 수정**:
+
 - `MinionState.Guard` 추가
 - Guard 진입 조건: `CurrentFormation == Phalanx && 적이 접근 중`
 - Guard 동작: 슬롯 위치 고수, 접근 적만 공격 (이탈 없음)
 - 포메이션 보너스 적용: `ApplyFormationModifiers()` — 공격력, 방어력, 속도 등 ScriptableObject 스탯에 배율 적용
 
 **FlockingSystem**:
+
 - 0.2초 간격 코루틴 (랜덤 오프셋 0~0.1초)
 - `SpatialHash` 클래스: 셀 크기 3.0, 인접 9셀 탐색
 - `CalculateFlockingForce()`: Separation(1.5) + Alignment(0.5) + Cohesion(0.8) + FormationTarget(2.0)
@@ -78,12 +81,12 @@ Assets/Scripts/
 
 ### 기존 코드 변경점
 
-| 파일 | 변경 내용 |
-| --- | --- |
-| `GameEvents.cs` | `OnFormationChanged` 이벤트 추가 |
-| `MinionState.cs` | `Guard` 상태 추가 |
-| `MinionBase.cs` | Guard 상태 로직, FlockingSystem 연동, 현재 Golden Spiral 로직 대체 |
-| `PlayerController.cs` | Q 키 입력 바인딩 (InputSystem Action 추가) |
+| 파일                  | 변경 내용                                                          |
+| --------------------- | ------------------------------------------------------------------ |
+| `GameEvents.cs`       | `OnFormationChanged` 이벤트 추가                                   |
+| `MinionState.cs`      | `Guard` 상태 추가                                                  |
+| `MinionBase.cs`       | Guard 상태 로직, FlockingSystem 연동, 현재 Golden Spiral 로직 대체 |
+| `PlayerController.cs` | Q 키 입력 바인딩 (InputSystem Action 추가)                         |
 
 ### 테스트 기준
 
@@ -122,18 +125,21 @@ Assets/Scripts/
 ### 핵심 구현 사항
 
 **PlayerAttack**:
+
 - 런 시작 시 무기 선택 (UI 또는 기본값)
 - 좌클릭: `Fire()` → 무기 타입에 따라 분기
 - 쿨타임 관리: 지팡이 1.0초, 화살 0.8초
 - 마우스 방향 계산: `Camera.main.ScreenToWorldPoint` → 방향 벡터
 
 **해골 지팡이 (Staff)**:
+
 - `Physics2D.OverlapCircle` + 각도 필터 (전방 90도)
 - 반경 1.8 유닛, 범위 내 모든 Enemy 레이어에 피해
 - 넉백: 1.5 유닛 (적에게 `Rigidbody2D.AddForce`)
 - 애니메이션 타이밍: 선딜 0.1초 → 활성 0.15초 → 후딜 0.05초
 
 **영혼 화살 (SoulArrow)**:
+
 - `Projectile` 프리팹 스폰 (ObjectPoolManager 사용)
 - 속도: 12 유닛/초, 크기: 0.3×0.3, 사거리: 8 유닛
 - 자동 조준 보정: 마우스 방향 ±15도 내 `Physics2D.OverlapCircle`로 가장 가까운 적 탐지 → 약한 유도
@@ -141,10 +147,10 @@ Assets/Scripts/
 
 ### 기존 코드 변경점
 
-| 파일 | 변경 내용 |
-| --- | --- |
-| `PlayerController.cs` | 좌클릭 입력 바인딩 (InputSystem Action 추가) |
-| `ObjectPoolManager.cs` | Projectile 프리팹 풀 등록 |
+| 파일                   | 변경 내용                                    |
+| ---------------------- | -------------------------------------------- |
+| `PlayerController.cs`  | 좌클릭 입력 바인딩 (InputSystem Action 추가) |
+| `ObjectPoolManager.cs` | Projectile 프리팹 풀 등록                    |
 
 ### 테스트 기준
 
@@ -191,18 +197,21 @@ Assets/Scripts/
 ### 핵심 구현 사항
 
 **ExperienceSystem (PlayerCombat에 추가하거나 별도 컴포넌트)**:
+
 - `CurrentLevel`, `CurrentXP`, `XPToNextLevel`
 - `AddExperience(int xp)`: XP 누적 → 레벨업 판정
 - 필요 XP 테이블: `[10, 15, 22, 30, 40, ...]` (×1.3 배율)
 - 레벨업 시 `GameEvents.RaiseLevelUp(int level)` 발행
 
 **LevelUpManager**:
+
 - SO 기반 선택지 풀 (에디터에서 ScriptableObject 에셋 생성)
 - `GenerateChoices()`: 카테고리별 1개씩, 가중치 기반 랜덤 추출
 - 선택지 상한 도달 시 풀에서 제거
 - `ApplyChoice(SkillOptionSO option)`: 선택 효과 적용
 
 **LevelUpUI**:
+
 - `Time.timeScale = 0` 설정
 - 3개 카드 표시 (이름, 효과 설명, 아이콘)
 - 클릭 또는 1/2/3 키로 선택
@@ -210,10 +219,10 @@ Assets/Scripts/
 
 ### 기존 코드 변경점
 
-| 파일 | 변경 내용 |
-| --- | --- |
+| 파일            | 변경 내용                                                              |
+| --------------- | ---------------------------------------------------------------------- |
 | `GameEvents.cs` | `OnLevelUp(int level)`, `OnExperienceChanged(float ratio)` 이벤트 추가 |
-| `EnemyBase.cs` | 사망 시 ExpOrbSpawner 연동 (또는 GameEvents 통해) |
+| `EnemyBase.cs`  | 사망 시 ExpOrbSpawner 연동 (또는 GameEvents 통해)                      |
 
 ### 테스트 기준
 
@@ -252,6 +261,7 @@ Assets/Scripts/
 ### 핵심 구현 사항
 
 **RefineRecipeSO**:
+
 ```csharp
 [CreateAssetMenu(menuName = "BoneToPeak/Refine Recipe")]
 public class RefineRecipeSO : ScriptableObject
@@ -266,6 +276,7 @@ public class RefineRecipeSO : ScriptableObject
 ```
 
 **RefineSystem**:
+
 - Space 키 → 합성 메뉴 열기 (일시정지 아님, 실시간)
 - 현재 소환된 미니언 목록에서 합성 가능한 조합 탐색
 - 합성 시작 → 재료 미니언 정지 + 프로그레스 바 표시
@@ -275,12 +286,12 @@ public class RefineRecipeSO : ScriptableObject
 
 ### 기존 코드 변경점
 
-| 파일 | 변경 내용 |
-| --- | --- |
-| `GameEvents.cs` | `OnRefineStarted`, `OnRefineCompleted`, `OnRefineCancelled` 이벤트 추가 |
-| `PlayerCombat.cs` | `OnDamageTaken` 이벤트 추가 → RefineSystem에서 피격 감지용 |
-| `MinionBase.cs` | `SetFrozen(bool)` 메서드 추가 — 합성 중 이동/공격 정지 |
-| `PlayerController.cs` | Space 키 입력 바인딩 |
+| 파일                  | 변경 내용                                                               |
+| --------------------- | ----------------------------------------------------------------------- |
+| `GameEvents.cs`       | `OnRefineStarted`, `OnRefineCompleted`, `OnRefineCancelled` 이벤트 추가 |
+| `PlayerCombat.cs`     | `OnDamageTaken` 이벤트 추가 → RefineSystem에서 피격 감지용              |
+| `MinionBase.cs`       | `SetFrozen(bool)` 메서드 추가 — 합성 중 이동/공격 정지                  |
+| `PlayerController.cs` | Space 키 입력 바인딩                                                    |
 
 ### 테스트 기준
 
@@ -313,6 +324,7 @@ Assets/Scripts/
 ### 핵심 구현 사항
 
 **ExplodeSystem**:
+
 - E 키 짧게: `ExplodeAll()` — 보유 Corpse 전량 소비
 - E 키 길게: `StartCharging()` → 게이지 충전 → E 해제 시 `ExplodePartial(amount)`
 - 게이지 충전 속도: 초당 보유 Corpse의 50%
@@ -323,12 +335,12 @@ Assets/Scripts/
 
 ### 기존 코드 변경점
 
-| 파일 | 변경 내용 |
-| --- | --- |
-| `GameEvents.cs` | `OnExplodeUsed(int corpseCount, float damage)` 이벤트 추가 |
-| `PlayerCombat.cs` | `ConsumeCorpse(int amount)` public 메서드 필요 |
-| `PlayerController.cs` | E 키 입력 바인딩 (Press/Release 구분) |
-| `Corpse.cs` | `TriggerChainExplosion()` 메서드 추가 — 연쇄 폭발 시 피해 발생 후 소멸 |
+| 파일                  | 변경 내용                                                              |
+| --------------------- | ---------------------------------------------------------------------- |
+| `GameEvents.cs`       | `OnExplodeUsed(int corpseCount, float damage)` 이벤트 추가             |
+| `PlayerCombat.cs`     | `ConsumeCorpse(int amount)` public 메서드 필요                         |
+| `PlayerController.cs` | E 키 입력 바인딩 (Press/Release 구분)                                  |
+| `Corpse.cs`           | `TriggerChainExplosion()` 메서드 추가 — 연쇄 폭발 시 피해 발생 후 소멸 |
 
 ### 테스트 기준
 
@@ -397,6 +409,7 @@ Assets/Scripts/
 ### 핵심 구현 사항
 
 **BossBase**:
+
 - 등장 연출 코루틴 (2초 이동 + 무적)
 - `CurrentPhase`, `PhaseThresholds[]` — HP 비율 기반 페이즈 전환
 - 페이즈 전환 시 0.5초 정지 + 시각 이펙트
@@ -451,16 +464,16 @@ Assets/Scripts/
 
 ### GameEvents 연동 테이블
 
-| UI 요소 | 구독 이벤트 |
-| --- | --- |
-| HealthBarUI | `OnPlayerHealthChanged(float ratio)` |
-| CorpseCounterUI | `OnCorpseCountChanged(int count)` |
-| WaveTimerUI | `OnWaveStarted(int)`, `OnWaveEnded(int)` |
-| FormationIndicatorUI | `OnFormationChanged(FormationType)` |
-| MinionCounterUI | `OnMinionCountChanged(int cur, int max)` |
-| ExplodeCooldownUI | `OnExplodeUsed(int, float)` |
-| BossHealthBarUI | `OnBossHealthChanged(float, string)` |
-| LevelUpUI | `OnLevelUp(int)` |
+| UI 요소              | 구독 이벤트                              |
+| -------------------- | ---------------------------------------- |
+| HealthBarUI          | `OnPlayerHealthChanged(float ratio)`     |
+| CorpseCounterUI      | `OnCorpseCountChanged(int count)`        |
+| WaveTimerUI          | `OnWaveStarted(int)`, `OnWaveEnded(int)` |
+| FormationIndicatorUI | `OnFormationChanged(FormationType)`      |
+| MinionCounterUI      | `OnMinionCountChanged(int cur, int max)` |
+| ExplodeCooldownUI    | `OnExplodeUsed(int, float)`              |
+| BossHealthBarUI      | `OnBossHealthChanged(float, string)`     |
+| LevelUpUI            | `OnLevelUp(int)`                         |
 
 ---
 
@@ -490,14 +503,14 @@ Phase 3에서 Unity Editor에서 생성해야 할 SO 에셋 목록이다.
 
 ### 합성 레시피 SO (6개)
 
-| 에셋명 | 결과 | 재료 | 추가 Corpse |
-| --- | --- | --- | --- |
-| Recipe_GraveKnight | 그래브 나이트 | 워리어 ×2 | 2 |
-| Recipe_Wraith | 레이스 | 아처 ×2 | 3 |
-| Recipe_BoneGolem | 본 골렘 | 좀비 ×3 | 3 |
-| Recipe_DeathKnight | 데스 나이트 | 그래브 나이트 + 레이스 | 5 |
-| Recipe_BoneDragon | 본 드래곤 | 본 골렘 + 아처 ×3 | 8 |
-| Recipe_Lich | 리치 | 레이스 ×2 | 10 |
+| 에셋명             | 결과          | 재료                   | 추가 Corpse |
+| ------------------ | ------------- | ---------------------- | ----------- |
+| Recipe_GraveKnight | 그래브 나이트 | 워리어 ×2              | 2           |
+| Recipe_Wraith      | 레이스        | 아처 ×2                | 3           |
+| Recipe_BoneGolem   | 본 골렘       | 좀비 ×3                | 3           |
+| Recipe_DeathKnight | 데스 나이트   | 그래브 나이트 + 레이스 | 5           |
+| Recipe_BoneDragon  | 본 드래곤     | 본 골렘 + 아처 ×3      | 8           |
+| Recipe_Lich        | 리치          | 레이스 ×2              | 10          |
 
 ### 레벨업 선택지 SO (15개)
 
@@ -505,12 +518,12 @@ Phase 3에서 Unity Editor에서 생성해야 할 SO 에셋 목록이다.
 
 ### 보스 스탯 SO (4개)
 
-| 에셋명 | HP | 공격력 | 이동속도 | 페이즈 수 |
-| --- | --- | --- | --- | --- |
-| Boss_Paladin | 500 | 20 | 5.0 | 2 |
-| Boss_Dragon | 1200 | 25 | 4.0 | 3 |
-| Boss_Archmage | 800 | 30 | 3.0 | 3 |
-| Boss_Hero | 2000 | 35 | 5.0 | 4 |
+| 에셋명        | HP   | 공격력 | 이동속도 | 페이즈 수 |
+| ------------- | ---- | ------ | -------- | --------- |
+| Boss_Paladin  | 500  | 20     | 5.0      | 2         |
+| Boss_Dragon   | 1200 | 25     | 4.0      | 3         |
+| Boss_Archmage | 800  | 30     | 3.0      | 3         |
+| Boss_Hero     | 2000 | 35     | 5.0      | 4         |
 
 ### 엘리트 스탯 SO (3개)
 
@@ -522,17 +535,17 @@ Phase 3에서 Unity Editor에서 생성해야 할 SO 에셋 목록이다.
 
 Phase 3에서 필요한 추가 물리 레이어 설정 (Unity Editor).
 
-| 레이어 | 번호 | 용도 |
-| --- | --- | --- |
-| Projectile | 10 | 투사체 (영혼 화살, 보스 마법탄 등) |
-| BossProjectile | 11 | 보스 전용 투사체 |
+| 레이어         | 번호 | 용도                               |
+| -------------- | ---- | ---------------------------------- |
+| Projectile     | 10   | 투사체 (영혼 화살, 보스 마법탄 등) |
+| BossProjectile | 11   | 보스 전용 투사체                   |
 
 ### 충돌 매트릭스 추가
 
-| | Player | Enemy | Minion | Corpse | Projectile | BossProjectile |
-| --- | --- | --- | --- | --- | --- | --- |
-| Projectile | X | O | X | X | X | X |
-| BossProjectile | O | X | O | X | X | X |
+|                | Player | Enemy | Minion | Corpse | Projectile | BossProjectile |
+| -------------- | ------ | ----- | ------ | ------ | ---------- | -------------- |
+| Projectile     | X      | O     | X      | X      | X          | X              |
+| BossProjectile | O      | X     | O      | X      | X          | X              |
 
 > O = 충돌, X = 무시
 
