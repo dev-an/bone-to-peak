@@ -8,12 +8,12 @@
 
 **경로**: `Edit > Project Settings > Tags and Layers > Layers`
 
-| 레이어 번호 | 이름     | 용도                      |
-| ----------- | -------- | ------------------------- |
-| 6           | Player   | 네크로맨서                |
-| 7           | Enemy    | 모든 적 (일반/엘리트/보스) |
-| 8           | Minion   | 소환된 미니언             |
-| 9           | Corpse   | 바닥의 시체 오브젝트      |
+| 레이어 번호 | 이름   | 용도                       |
+| ----------- | ------ | -------------------------- |
+| 6           | Player | 네크로맨서                 |
+| 7           | Enemy  | 모든 적 (일반/엘리트/보스) |
+| 8           | Minion | 소환된 미니언              |
+| 9           | Corpse | 바닥의 시체 오브젝트       |
 
 ---
 
@@ -23,22 +23,22 @@
 
 모든 레이어 간 충돌을 **비활성화**한 후, 아래 조합만 **활성화**합니다.
 
-| 레이어 A | 레이어 B | 활성화 | 용도                                    |
-| -------- | -------- | ------ | --------------------------------------- |
+| 레이어 A | 레이어 B | 활성화 | 용도                                         |
+| -------- | -------- | ------ | -------------------------------------------- |
 | Player   | Enemy    | O      | 적 접촉 시 플레이어 데미지 (OnTriggerStay2D) |
-| Minion   | Enemy    | O      | 미니언의 적 탐색 (OverlapCircleNonAlloc) |
-| Player   | Corpse   | O      | 시체 수집 트리거 (CorpseCollector)       |
+| Minion   | Enemy    | O      | 미니언의 적 탐색 (OverlapCircleNonAlloc)     |
+| Player   | Corpse   | O      | 시체 수집 트리거 (CorpseCollector)           |
 
 **비활성화해야 하는 조합** (명시적):
 
-| 레이어 A | 레이어 B | 비활성화 | 이유                             |
-| -------- | -------- | -------- | -------------------------------- |
-| Player   | Minion   | X        | 플레이어와 미니언은 통과         |
+| 레이어 A | 레이어 B | 비활성화 | 이유                                |
+| -------- | -------- | -------- | ----------------------------------- |
+| Player   | Minion   | X        | 플레이어와 미니언은 통과            |
 | Minion   | Minion   | X        | 미니언끼리 통과 (Flocking으로 분리) |
-| Enemy    | Enemy    | X        | 적끼리 겹침 허용                 |
-| Enemy    | Corpse   | X        | 적은 시체와 상호작용 없음        |
-| Minion   | Corpse   | X        | 미니언은 시체를 수집하지 않음    |
-| Corpse   | Corpse   | X        | 시체끼리 물리 충돌 없음          |
+| Enemy    | Enemy    | X        | 적끼리 겹침 허용                    |
+| Enemy    | Corpse   | X        | 적은 시체와 상호작용 없음           |
+| Minion   | Corpse   | X        | 미니언은 시체를 수집하지 않음       |
+| Corpse   | Corpse   | X        | 시체끼리 물리 충돌 없음             |
 
 ---
 
@@ -50,12 +50,12 @@
 
 `Create > BoneToPeak > Enemy Stats`
 
-| 에셋 이름        | EnemyName  | MaxHealth | Attack | MoveSpeed | AttackRange | CorpseDropCount |
-| ---------------- | ---------- | --------- | ------ | --------- | ----------- | --------------- |
-| `EnemyStats_Swarm`     | 스웜       | 15        | 5      | 5.0       | 0.8         | 1               |
-| `EnemyStats_Halberdier` | 할버디어   | 40        | 12     | 3.5       | 1.5         | 1               |
-| `EnemyStats_Archer`    | 궁수       | 25        | 8      | 3.0       | 6.0         | 1               |
-| `EnemyStats_Shielder`  | 방패병     | 80        | 6      | 2.5       | 0.8         | 2               |
+| 에셋 이름               | EnemyName | MaxHealth | Attack | MoveSpeed | AttackRange | CorpseDropCount |
+| ----------------------- | --------- | --------- | ------ | --------- | ----------- | --------------- |
+| `EnemyStats_Swarm`      | 스웜      | 15        | 5      | 5.0       | 0.8         | 1               |
+| `EnemyStats_Halberdier` | 할버디어  | 40        | 12     | 3.5       | 1.5         | 1               |
+| `EnemyStats_Archer`     | 궁수      | 25        | 8      | 3.0       | 6.0         | 1               |
+| `EnemyStats_Shielder`   | 방패병    | 80        | 6      | 2.5       | 0.8         | 2               |
 
 ### 3-2. 웨이브 설정 (WaveConfig) — 4개
 
@@ -63,65 +63,65 @@
 
 **Wave1_Tutorial**
 
-| 필드           | 값    |
-| -------------- | ----- |
-| WaveNumber     | 1     |
-| Duration       | 60    |
-| SpawnInterval  | 2.0   |
-| HpMultiplier   | 1.0   |
-| AtkMultiplier  | 1.0   |
-| SpdMultiplier  | 1.0   |
-| RestDuration   | 10    |
-| EnemyEntries   | Swarm 프리팹 (Weight: 1.0) |
+| 필드          | 값                         |
+| ------------- | -------------------------- |
+| WaveNumber    | 1                          |
+| Duration      | 60                         |
+| SpawnInterval | 2.0                        |
+| HpMultiplier  | 1.0                        |
+| AtkMultiplier | 1.0                        |
+| SpdMultiplier | 1.0                        |
+| RestDuration  | 10                         |
+| EnemyEntries  | Swarm 프리팹 (Weight: 1.0) |
 
 **Wave2_Halberdier**
 
-| 필드           | 값    |
-| -------------- | ----- |
-| WaveNumber     | 2     |
-| Duration       | 60    |
-| SpawnInterval  | 1.8   |
-| HpMultiplier   | 1.0   |
-| AtkMultiplier  | 1.0   |
-| SpdMultiplier  | 1.0   |
-| RestDuration   | 10    |
-| EnemyEntries   | Swarm (Weight: 0.7), Halberdier (Weight: 0.3) |
+| 필드          | 값                                            |
+| ------------- | --------------------------------------------- |
+| WaveNumber    | 2                                             |
+| Duration      | 60                                            |
+| SpawnInterval | 1.8                                           |
+| HpMultiplier  | 1.0                                           |
+| AtkMultiplier | 1.0                                           |
+| SpdMultiplier | 1.0                                           |
+| RestDuration  | 10                                            |
+| EnemyEntries  | Swarm (Weight: 0.7), Halberdier (Weight: 0.3) |
 
 **Wave3_Archer**
 
-| 필드           | 값    |
-| -------------- | ----- |
-| WaveNumber     | 3     |
-| Duration       | 60    |
-| SpawnInterval  | 1.5   |
-| HpMultiplier   | 1.0   |
-| AtkMultiplier  | 1.0   |
-| SpdMultiplier  | 1.0   |
-| RestDuration   | 10    |
-| EnemyEntries   | Swarm (Weight: 0.5), Halberdier (Weight: 0.25), Archer (Weight: 0.25) |
+| 필드          | 값                                                                    |
+| ------------- | --------------------------------------------------------------------- |
+| WaveNumber    | 3                                                                     |
+| Duration      | 60                                                                    |
+| SpawnInterval | 1.5                                                                   |
+| HpMultiplier  | 1.0                                                                   |
+| AtkMultiplier | 1.0                                                                   |
+| SpdMultiplier | 1.0                                                                   |
+| RestDuration  | 10                                                                    |
+| EnemyEntries  | Swarm (Weight: 0.5), Halberdier (Weight: 0.25), Archer (Weight: 0.25) |
 
 **Wave4_Mixed**
 
-| 필드           | 값    |
-| -------------- | ----- |
-| WaveNumber     | 4     |
-| Duration       | 60    |
-| SpawnInterval  | 1.3   |
-| HpMultiplier   | 1.0   |
-| AtkMultiplier  | 1.0   |
-| SpdMultiplier  | 1.0   |
-| RestDuration   | 10    |
-| EnemyEntries   | Swarm (0.4), Halberdier (0.2), Archer (0.2), Shielder (0.2) |
+| 필드          | 값                                                          |
+| ------------- | ----------------------------------------------------------- |
+| WaveNumber    | 4                                                           |
+| Duration      | 60                                                          |
+| SpawnInterval | 1.3                                                         |
+| HpMultiplier  | 1.0                                                         |
+| AtkMultiplier | 1.0                                                         |
+| SpdMultiplier | 1.0                                                         |
+| RestDuration  | 10                                                          |
+| EnemyEntries  | Swarm (0.4), Halberdier (0.2), Archer (0.2), Shielder (0.2) |
 
 ### 3-3. 미니언 스탯 (MinionStats) — 3종
 
 `Create > BoneToPeak > Minion Stats`
 
-| 에셋 이름              | MinionName      | Tier | MaxHealth | Attack | AttackInterval | MoveSpeed | AttackRange | CorpseCost | IsRanged |
-| ---------------------- | --------------- | ---- | --------- | ------ | -------------- | --------- | ----------- | ---------- | -------- |
-| `MinionStats_Warrior`  | 스켈레톤 워리어 | T1   | 30        | 12     | 1.0            | 4.5       | 1.5         | 1          | false    |
-| `MinionStats_Archer`   | 스켈레톤 아처   | T1   | 20        | 8      | 1.2            | 4.0       | 7.0         | 2          | true     |
-| `MinionStats_Zombie`   | 좀비            | T1   | 60        | 6      | 1.5            | 3.0       | 1.2         | 1          | false    |
+| 에셋 이름             | MinionName      | Tier | MaxHealth | Attack | AttackInterval | MoveSpeed | AttackRange | CorpseCost | IsRanged |
+| --------------------- | --------------- | ---- | --------- | ------ | -------------- | --------- | ----------- | ---------- | -------- |
+| `MinionStats_Warrior` | 스켈레톤 워리어 | T1   | 30        | 12     | 1.0            | 4.5       | 1.5         | 1          | false    |
+| `MinionStats_Archer`  | 스켈레톤 아처   | T1   | 20        | 8      | 1.2            | 4.0       | 7.0         | 2          | true     |
+| `MinionStats_Zombie`  | 좀비            | T1   | 60        | 6      | 1.5            | 3.0       | 1.2         | 1          | false    |
 
 > **주의**: `AttackInterval` 값은 **공격 간격(초)**입니다. 높을수록 느린 공격입니다.
 
@@ -137,17 +137,17 @@
 
 | 컴포넌트         | 설정                                                    |
 | ---------------- | ------------------------------------------------------- |
-| SpriteRenderer   | 임시 스프라이트 (색상으로 구분)                          |
+| SpriteRenderer   | 임시 스프라이트 (색상으로 구분)                         |
 | Rigidbody2D      | Body Type: Dynamic, Gravity Scale: 0, Freeze Rotation Z |
 | CircleCollider2D | Is Trigger: **true**                                    |
-| EnemyBase        | Stats: 해당 EnemyStatsSO 에셋 할당                     |
+| EnemyBase        | Stats: 해당 EnemyStatsSO 에셋 할당                      |
 
-| 프리팹 이름      | 스프라이트 색상 | Collider Radius |
-| ---------------- | --------------- | --------------- |
-| `Enemy_Swarm`     | 빨간색 (FF0000) | 0.3             |
-| `Enemy_Halberdier`| 주황색 (FF8800) | 0.4             |
-| `Enemy_Archer`    | 보라색 (8800FF) | 0.3             |
-| `Enemy_Shielder`  | 회색 (888888)   | 0.5             |
+| 프리팹 이름        | 스프라이트 색상 | Collider Radius |
+| ------------------ | --------------- | --------------- |
+| `Enemy_Swarm`      | 빨간색 (FF0000) | 0.3             |
+| `Enemy_Halberdier` | 주황색 (FF8800) | 0.4             |
+| `Enemy_Archer`     | 보라색 (8800FF) | 0.3             |
+| `Enemy_Shielder`   | 회색 (888888)   | 0.5             |
 
 **Layer**: 모든 적 프리팹의 Layer를 **Enemy (7)**로 설정
 
@@ -157,26 +157,26 @@
 
 | 컴포넌트         | 설정                                                    |
 | ---------------- | ------------------------------------------------------- |
-| SpriteRenderer   | 임시 스프라이트 (색상으로 구분)                          |
+| SpriteRenderer   | 임시 스프라이트 (색상으로 구분)                         |
 | Rigidbody2D      | Body Type: Dynamic, Gravity Scale: 0, Freeze Rotation Z |
 | CircleCollider2D | Is Trigger: **true**                                    |
-| MinionBase       | Stats: 해당 MinionStatsSO 에셋 할당                    |
+| MinionBase       | Stats: 해당 MinionStatsSO 에셋 할당                     |
 
-| 프리팹 이름        | 스프라이트 색상   | Collider Radius |
-| ------------------ | ----------------- | --------------- |
-| `Minion_Warrior`    | 연두색 (88FF00)   | 0.3             |
-| `Minion_Archer`     | 하늘색 (00CCFF)   | 0.3             |
-| `Minion_Zombie`     | 갈색 (886600)     | 0.4             |
+| 프리팹 이름      | 스프라이트 색상 | Collider Radius |
+| ---------------- | --------------- | --------------- |
+| `Minion_Warrior` | 연두색 (88FF00) | 0.3             |
+| `Minion_Archer`  | 하늘색 (00CCFF) | 0.3             |
+| `Minion_Zombie`  | 갈색 (886600)   | 0.4             |
 
 **Layer**: 모든 미니언 프리팹의 Layer를 **Minion (8)**으로 설정
 
 ### 4-3. 시체 프리팹 — 1종
 
-| 컴포넌트         | 설정                                                    |
-| ---------------- | ------------------------------------------------------- |
-| SpriteRenderer   | 임시 스프라이트, 녹색 (00FF66), 크기 0.5x0.5            |
-| CircleCollider2D | Is Trigger: **true**, Radius: 0.25                      |
-| Corpse (스크립트)| 기본값 유지 (LifeTime: 5, FlashStartTime: 3.5)          |
+| 컴포넌트          | 설정                                           |
+| ----------------- | ---------------------------------------------- |
+| SpriteRenderer    | 임시 스프라이트, 녹색 (00FF66), 크기 0.5x0.5   |
+| CircleCollider2D  | Is Trigger: **true**, Radius: 0.25             |
+| Corpse (스크립트) | 기본값 유지 (LifeTime: 5, FlashStartTime: 3.5) |
 
 **Layer**: **Corpse (9)**로 설정
 **Rigidbody2D**: **불필요** (Corpse는 물리 이동 없이 코드로 position 직접 변경)
@@ -191,13 +191,13 @@
 
 ### 5-1. Player (루트 오브젝트)
 
-| 컴포넌트         | 설정                                                    |
-| ---------------- | ------------------------------------------------------- |
-| SpriteRenderer   | 임시 스프라이트, 흰색 또는 파란색                        |
-| Rigidbody2D      | Body Type: Dynamic, Gravity Scale: 0, Freeze Rotation Z |
-| CircleCollider2D | Is Trigger: **true**, Radius: 0.4                       |
-| PlayerController | InputActions: `InputSystem_Actions` 에셋 할당           |
-| PlayerCombat     | 기본값 유지                                             |
+| 컴포넌트         | 설정                                                                                                                  |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------- |
+| SpriteRenderer   | 임시 스프라이트, 흰색 또는 파란색                                                                                     |
+| Rigidbody2D      | Body Type: Dynamic, Gravity Scale: 0, Freeze Rotation Z                                                               |
+| CircleCollider2D | Is Trigger: **true**, Radius: 0.4                                                                                     |
+| PlayerController | InputActions: `InputSystem_Actions` 에셋 할당                                                                         |
+| PlayerCombat     | 기본값 유지                                                                                                           |
 | SummonSystem     | InputActions: `InputSystem_Actions`, DefaultMinionStats: `MinionStats_Warrior`, DefaultMinionPrefab: `Minion_Warrior` |
 
 **Layer**: **Player (6)**
@@ -206,10 +206,10 @@
 
 Player 오브젝트 하위에 빈 GameObject 생성 후:
 
-| 컴포넌트         | 설정                                                    |
-| ---------------- | ------------------------------------------------------- |
-| CircleCollider2D | Is Trigger: **true**, Radius: **1.5** (수집 범위)       |
-| CorpseCollector  | 기본값 유지 (SuctionSpeed: 10, CollectDistance: 0.3)    |
+| 컴포넌트         | 설정                                                 |
+| ---------------- | ---------------------------------------------------- |
+| CircleCollider2D | Is Trigger: **true**, Radius: **1.5** (수집 범위)    |
+| CorpseCollector  | 기본값 유지 (SuctionSpeed: 10, CollectDistance: 0.3) |
 
 **Layer**: **Player (6)** (부모와 동일)
 
@@ -221,22 +221,22 @@ Player 오브젝트 하위에 빈 GameObject 생성 후:
 
 ### 6-1. ObjectPoolManager
 
-| 컴포넌트          | 설정                                   |
-| ----------------- | -------------------------------------- |
+| 컴포넌트          | 설정                                        |
+| ----------------- | ------------------------------------------- |
 | ObjectPoolManager | DefaultInitialSize: 10, DefaultMaxSize: 100 |
 
 > 이미 존재하면 중복 생성하지 마세요. `DontDestroyOnLoad`로 씬 전환에도 유지됩니다.
 
 ### 6-2. CorpseSpawner
 
-| 컴포넌트      | 설정                                         |
-| ------------- | -------------------------------------------- |
+| 컴포넌트      | 설정                                              |
+| ------------- | ------------------------------------------------- |
 | CorpseSpawner | CorpsePrefab: `Corpse` 프리팹, ScatterRadius: 0.5 |
 
 ### 6-3. EnemySpawner
 
-| 컴포넌트     | 설정                                                    |
-| ------------ | ------------------------------------------------------- |
+| 컴포넌트     | 설정                                                                                |
+| ------------ | ----------------------------------------------------------------------------------- |
 | EnemySpawner | WaveConfigs: [Wave1, Wave2, Wave3, Wave4] 순서대로 할당, SpawnOffsetFromCamera: 1.5 |
 
 ---

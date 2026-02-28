@@ -21,10 +21,10 @@
 
 ### 스크립트
 
-| 파일 | 네임스페이스 | 역할 |
-| ---- | ------------ | ---- |
-| `PlayerController.cs` | `BoneToPeak.Player` | 입력 수신 및 이동 처리 |
-| `PlayerInputActions` | — | Input System 액션 맵 (자동 생성) |
+| 파일                  | 네임스페이스        | 역할                             |
+| --------------------- | ------------------- | -------------------------------- |
+| `PlayerController.cs` | `BoneToPeak.Player` | 입력 수신 및 이동 처리           |
+| `PlayerInputActions`  | —                   | Input System 액션 맵 (자동 생성) |
 
 ### 완료 조건
 
@@ -44,11 +44,11 @@
 
 ### 설정
 
-| 항목 | 값 |
-| ---- | -- |
-| Body | Framing Transposer |
-| Damping X/Y | 0.5 ~ 1.0 |
-| Dead Zone | 0.1 |
+| 항목            | 값                      |
+| --------------- | ----------------------- |
+| Body            | Framing Transposer      |
+| Damping X/Y     | 0.5 ~ 1.0               |
+| Dead Zone       | 0.1                     |
 | Lens Ortho Size | 게임 플레이에 맞춰 조정 |
 
 ### 완료 조건
@@ -68,11 +68,11 @@
 
 ### 스크립트
 
-| 파일 | 네임스페이스 | 역할 |
-| ---- | ------------ | ---- |
-| `ObjectPool.cs` | `BoneToPeak.Core` | 풀 생성/반환/확장 관리 |
-| `ObjectPoolManager.cs` | `BoneToPeak.Core` | 여러 풀을 중앙에서 관리 |
-| `IPoolable.cs` | `BoneToPeak.Core` | 풀 대상 오브젝트 인터페이스 |
+| 파일                   | 네임스페이스      | 역할                        |
+| ---------------------- | ----------------- | --------------------------- |
+| `ObjectPool.cs`        | `BoneToPeak.Core` | 풀 생성/반환/확장 관리      |
+| `ObjectPoolManager.cs` | `BoneToPeak.Core` | 여러 풀을 중앙에서 관리     |
+| `IPoolable.cs`         | `BoneToPeak.Core` | 풀 대상 오브젝트 인터페이스 |
 
 ### IPoolable 인터페이스
 

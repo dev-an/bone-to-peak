@@ -8,7 +8,7 @@
 | 퍼블릭 메서드    | PascalCase        | `TakeDamage()`, `SpawnMinion()`   |
 | 프라이빗 메서드  | PascalCase        | `CalculateHealth()`               |
 | 퍼블릭 프로퍼티  | PascalCase        | `MaxHealth`, `MoveSpeed`          |
-| 프라이빗 필드    | _camelCase        | `_currentHealth`, `_moveSpeed`    |
+| 프라이빗 필드    | \_camelCase       | `_currentHealth`, `_moveSpeed`    |
 | 로컬 변수        | camelCase         | `spawnPoint`, `enemyCount`        |
 | 상수             | PascalCase        | `MaxWaveCount`, `DefaultSpeed`    |
 | 인터페이스       | I + PascalCase    | `IDamageable`, `IPoolable`        |

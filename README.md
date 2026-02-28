@@ -2,7 +2,6 @@
   <img src="./Assets/bone-to-peak.png" alt="bone-to-peak thumbnail" width="512"/>
 </div>
 
-
 # 🦴 Bone-To-Peak
 
 > **"Everyone has a bone to pick, but we build a Bone to Peak."**
@@ -15,9 +14,9 @@
 
 In a world that wants you dead, you make the dead work for you. **Bone-To-Peak** reimagines the classic survivor formula by focusing on **Minion Management** and **Tactical Summoning**.
 
-* **Genre:** Action Roguelike / Bullet Heaven / Horde Survivor
-* **Theme:** Dark Necromancy / Tactical Legion Building
-* **Platform:** Steam (PC)
+- **Genre:** Action Roguelike / Bullet Heaven / Horde Survivor
+- **Theme:** Dark Necromancy / Tactical Legion Building
+- **Platform:** Steam (PC)
 
 ---
 
@@ -31,9 +30,9 @@ Experience the exponential growth of your power. Start by reanimating a single r
 
 Enemies aren't just obstacles; they are your primary resource. Use the fallen to:
 
-* **Raise:** Summon various skeletons, zombies, and wraiths.
-* **Refine:** Sacrifice weaker minions to empower your elite "Peak-Guardians."
-* **Explode:** Use corpses as tactical traps to clear the screen.
+- **Raise:** Summon various skeletons, zombies, and wraiths.
+- **Refine:** Sacrifice weaker minions to empower your elite "Peak-Guardians."
+- **Explode:** Use corpses as tactical traps to clear the screen.
 
 ### 3. Tactical Formations
 
@@ -43,9 +42,9 @@ Unlike traditional survivors where projectiles fly randomly, your minions react 
 
 ## 🚀 Technical Highlights (For Developers)
 
-* **Massive Unit Optimization:** Built using **Object Pooling** to handle hundreds of active minions and thousands of enemies simultaneously without frame drops.
-* **Dynamic AI Pathfinding:** Light-weight flocking behavior for the undead horde.
-* **Modular Skill System:** Easily expandable scriptable objects for diverse summoning combinations.
+- **Massive Unit Optimization:** Built using **Object Pooling** to handle hundreds of active minions and thousands of enemies simultaneously without frame drops.
+- **Dynamic AI Pathfinding:** Light-weight flocking behavior for the undead horde.
+- **Modular Skill System:** Easily expandable scriptable objects for diverse summoning combinations.
 
 ---
 
@@ -53,8 +52,8 @@ Unlike traditional survivors where projectiles fly randomly, your minions react 
 
 ### Prerequisites
 
-* Unity 6.3 LTS or higher (Recommended)
-* Git LFS (Optional)
+- Unity 6.3 LTS or higher (Recommended)
+- Git LFS (Optional)
 
 ### Installation
 
@@ -74,6 +73,6 @@ This project is licensed under the MIT License - see the [LICENSE](https://www.g
 
 ## 🧛 Author
 
-**DEV.AN** - *Lead Necromancer*
+**DEV.AN** - _Lead Necromancer_
 
-*"The graveyard is just a waiting room for my army."*
+_"The graveyard is just a waiting room for my army."_

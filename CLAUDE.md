@@ -85,25 +85,30 @@ Phase 1 — Foundation 구현 완료.
 Phase 2 — Combat 기초 구현 완료.
 
 ### Phase 1 완료 항목
+
 - Object Pooling 시스템 (IPoolable, ObjectPool, ObjectPoolManager)
 - 플레이어 8방향 이동 (PlayerController + InputSystem)
 - 카메라 Follow (Cinemachine 3.1.3)
 - 씬 구성 및 테스트 통과
 
 ### Phase 2 완료 항목
+
 - 게임 이벤트 시스템 (GameEvents — 정적 이벤트 버스)
 - 체력/피격 시스템 (IDamageable, Health, DamageCalculator)
 - 적/미니언 SO 데이터 (EnemyStatsSO, WaveConfigSO, MinionStatsSO)
 - 플레이어 전투 (PlayerCombat — 시체 인벤토리, 소환 슬롯, 무적 시간)
-- 기본 적 AI (EnemyBase — 플레이어 추적)
+- 기본 적 AI (EnemyBase — 플레이어 추적, 미니언 접촉 데미지)
 - 적 스폰 시스템 (EnemySpawner — 웨이브 기반, 카메라 가장자리 스폰)
 - 시체 드롭/수집 (Corpse, CorpseSpawner, CorpseCollector)
-- 미니언 AI (MinionBase — Follow/Attack 상태)
+- 미니언 AI (MinionBase — Follow/Attack 상태, 적 접촉 데미지)
 - 소환 시스템 (SummonSystem — 우클릭 소환)
 
-### Unity Editor 수동 설정 필요 항목
+### Unity Editor 수동 설정 (미완료)
+
+> 상세 가이드: `docs/unity-editor-setup-phase2.md`
+
 - 물리 레이어: Player(6), Enemy(7), Minion(8), Corpse(9) + 충돌 매트릭스
-- SO 에셋 생성: 적 4종(Swarm/Halberdier/Archer/Shielder), 웨이브 4개, 미니언 3종
+- SO 에셋 생성: 적 4종, 웨이브 4개, 미니언 3종 (AttackInterval = 공격 간격 초)
 - 프리팹 생성: 적 4종, 미니언 3종, Corpse (임시 색상 스프라이트)
 - 씬 구성: CorpseSpawner, EnemySpawner 매니저 + CorpseDetector 자식 오브젝트
 

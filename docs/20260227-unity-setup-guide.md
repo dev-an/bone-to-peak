@@ -28,8 +28,8 @@ Unity Hub를 실행하고, Unity 계정으로 로그인한다.
 3. **Install Editor** 버튼 클릭
 4. **Unity 6 (6000.x LTS)** 선택
 5. 추가 모듈 선택:
-   - **Visual Studio Code Editor** (VS Code 사용 시)
-   - **Windows Build Support (Mono)** (Steam PC 빌드용, 필요시)
+    - **Visual Studio Code Editor** (VS Code 사용 시)
+    - **Windows Build Support (Mono)** (Steam PC 빌드용, 필요시)
 6. **Install** 클릭
 
 > Unity 6 LTS 버전 확인: `6000.0.x` 형태의 최신 LTS 버전을 선택한다.
@@ -47,7 +47,7 @@ Unity Hub에서 새 프로젝트를 생성하되, 이 리포지토리 경로를 
 2. 템플릿: **2D (URP)** 선택
 3. **Project name**: `bone-to-peak`
 4. **Location**: 이 리포지토리의 **상위 디렉토리** 선택
-   - 예: 리포지토리가 `~/Workspace/bone-to-peak`이면, Location은 `~/Workspace`
+    - 예: 리포지토리가 `~/Workspace/bone-to-peak`이면, Location은 `~/Workspace`
 5. **Create Project** 클릭
 
 > Unity가 기존 `Assets/` 폴더를 인식하고, `Library/`, `Packages/`, `ProjectSettings/` 등을 자동 생성한다.
@@ -70,9 +70,9 @@ Unity Hub에서 새 프로젝트를 생성하되, 이 리포지토리 경로를 
 
 1. **Edit → Project Settings → Editor**
 2. **Version Control**:
-   - Mode: **Visible Meta Files**
+    - Mode: **Visible Meta Files**
 3. **Asset Serialization**:
-   - Mode: **Force Text**
+    - Mode: **Force Text**
 
 > 이 설정은 Git에서 Unity 프로젝트를 올바르게 관리하기 위해 필수적이다.
 
@@ -88,8 +88,8 @@ Unity Hub에서 새 프로젝트를 생성하되, 이 리포지토리 경로를 
 1. Unity에서 **Edit → Preferences → External Tools**
 2. **External Script Editor**: Visual Studio Code 선택
 3. **Generate .csproj files** 옵션 활성화:
-   - [x] Embedded packages
-   - [x] Local packages
+    - [x] Embedded packages
+    - [x] Local packages
 
 이후 Unity에서 C# 스크립트를 더블클릭하면 VS Code가 열린다.
 
